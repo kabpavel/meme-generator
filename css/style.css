@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: Montserrat;
+    src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+
+
+body {
+    margin: 0;
+}
+
+html {
+    font-family: Montserrat, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
+button {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1em;
+    line-height: 1.4;
+}
+
+/* LAYOUT */
+
+.main-layout {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+.main-header {
+    height: 130px;
+    color: #ffffff;
+    background-color: #ff7f00;
+}
+
+.logo-img{
+    width: 66.5px;
+}
+
+/* main nav */
+
+.main-nav {
+    font-weight: bold;
+    letter-spacing: .05rem;
+}
+
+.main-nav li {
+    height: 131px;
+    width: 131px;
+    position: relative;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    line-height: 130px;
+    height: 130px;
+    width: 8.4375rem;
+    text-align: center;
+    border-right: 1px solid #1e1e1e;
+  }
+  
+  .main-nav a:first-child {
+    border-left: 1px solid #1e1e1e;
+  }
+  
+  .main-nav a.active {
+    border-bottom: 6px solid #58c93a;
+    color: #58c93a;
+  }
+  
+  .main-nav a:hover {
+    color: #58c93a;
+  }
+
+/* MAIN */
+
+.gallery-container {   
+    height: 90%;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 6px 6px;
+}
+
+/* HELPERS */
+
+.flex {
+    display: flex;
+    
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.justify-center {
+    justify-content: center;
+}
+
+.flex.flex-row {
+    flex-direction: row;
+}
+
+.flex.align-stretch {
+    align-items: stretch;
+}
+
+.flex.flex-column {
+    flex-direction: column;
+}
+
+.flex.justify-space-between {
+    justify-content: space-between;
+}
+
+.flex.justify-space-around {
+    justify-content: space-around;
+}
+
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }

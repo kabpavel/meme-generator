@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,46 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body onload="init()">
-    <h1>Meme Generator</h1>
-    <p>Some new text + other text</p>
+    <header class="main-header">
+        <div class="main-header-div main-layout flex align-center space-between">
+            <div class="logo"><img class="logo-img" src="./img/logo/logo.png" alt=""></div>
+            <ul class="main-nav clean-list flex align-center">
+                <li>
+                    <a href="#" onclick="toggleMenu()">Gallery</a>
+                </li>
+                <li>
+                    <a href="#" onclick="toggleMenu()">About</a>
+                </li>
+            </ul>
+            <!-- <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button> -->
+        </div>
+    </header>
+    <main class="main-content main-layout">
+        <div class="gallery">
+            <div class="search">
+                
+            </div>
+            <div class="gallery-container">
+                <div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div class="editor-container">
+        </div>
+    </main>
+    <section>
+
+    </section>
+
+    <footer class="main-footer flex flex-column align-center">
+    </footer>
     <script src="./js/services/gallary-service.js"></script>
+    <script src="./js/controllers/util-controller.js"></script>
     <script src="./js/controllers/gallary-controller.js"></script>
 </body>
+
 </html>
