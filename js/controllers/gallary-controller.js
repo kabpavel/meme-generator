@@ -2,7 +2,9 @@
 
 function init() {
     
-    
+}
 
-    
+
+function renderImageGallery () {
+    var imgs = getImagesToDisplay();
 }
