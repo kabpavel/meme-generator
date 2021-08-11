@@ -25,24 +25,45 @@
         </div>
     </header>
     <main class="main-content main-layout">
-        <div class="gallery">
+        <div class="img-gallery">
             <div class="search">
-                
+
             </div>
-            <div class="gallery-container">
-                <div>
-                    <div></div>
-                    <div></div>
-                </div>
+            <div class="img-gallery-container">
+
             </div>
         </div>
-        <div class="editor-container">
+        <div class="meme-editor-container flex">
+            <div class="canvas-container">
+                <canvas class="canvas" onclick="canvasClicked(event)"></canvas>
+            </div>
+            <div class="control-box flex flex-column">
+                <input class="meme-text" type="text" name="meme-text">
+                <div class="control-btns flex">
+                    <div class="up-and-down"><img class="control-img" src="./img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="Up Down"></div>
+                    <div class="add"><img class="control-img" src="./img/icons/add.png" alt="Add"></div>
+                    <div class="trash"><img class="control-img" src="./img/icons/trash.png" alt="Trash"></div>
+                </div>
+                <div class="edit-txt-btns">
+                    <div class="increase-font"><img class="control-img" src="./img/icons/increase-font-icon.png" alt="Increase"></div>
+                    <div class="decrease-font"><img class="control-img" src="./img/icons/decrease-font-icon.png" alt="Decrease"></div>
+                    <div class="align-to-left"><img class="control-img" src="./img/icons/align-to-left.png" alt="Align Left"></div>
+                    <div class="center-text-alignment"><img class="control-img" src="./img/icons/center-text-alignment.png" alt="Center Text"></div>
+                    <div class="align-to-right"><img class="control-img" src="./img/icons/align-to-right.png" alt="Align Right"></div>
+                    <div class="font-input"><input type="" name="" id=""></div>
+                    <div class="text-stroke"><img class="control-img" src="./img/icons/text-stroke.png" alt="Text Stroke"></div>
+                    <div class="control-img paint-board-and-brush"><img class="control-img" src="./img/icons/paint-board-and-brush.png" alt="Paint Brush"></div>
+                </div>
+                <div class="share-btns">
+                    <button class="Share"></button>
+                    <button class="Download"></button>
+                </div>
+            </div>
         </div>
     </main>
     <section>
 
     </section>
-
     <footer class="main-footer flex flex-column align-center">
     </footer>
     <script src="./js/services/gallary-service.js"></script>

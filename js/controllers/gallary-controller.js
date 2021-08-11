@@ -14,13 +14,13 @@ function renderImageGallery () {
         return acc + str
     },'')
 
-    setInnerHTML('.gallery-container', strHTML)
+    setInnerHTML('.img-gallery-container', strHTML)
 }
 
 function onSelectImg(id) {
     console.log('onSelectImg')
     debugger
-    hideElement('.gallery')
+    hideElement('.img-gallery')
 
     var currImg = getImageById(id);
 }
