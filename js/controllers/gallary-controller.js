@@ -10,7 +10,6 @@ function renderImageGallery () {
     
     var strHTML = imgs.reduce((acc, curr) => {
         var str = `<div><img src="./${curr.url}" onclick="onSelectImg(${curr.id})" alt=""></div>`
-        
         return acc + str
     },'')
 
