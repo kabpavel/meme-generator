@@ -27,22 +27,20 @@
     <main class="main-content main-layout">
         <div class="img-gallery">
             <div class="search">
-
             </div>
             <div class="img-gallery-container">
-
             </div>
         </div>
-        <div class="meme-editor-container flex">
+        <div class="memo-container flex">
             <div class="canvas-container">
-                <canvas class="canvas" onclick="canvasClicked(event)"></canvas>
+                <canvas class="canvas"></canvas>
             </div>
             <div class="control-box flex flex-column">
-                <input class="meme-text" type="text" name="meme-text">
+                <input class="meme-text" type="text" name="meme-text" oninput="onTypeText()">
                 <div class="edit-txt-cont grid">
-                    <div class="up-and-down"><img class="control-img" src="./img/icons/up-and-down.png" alt="Up Down"></div>
-                    <div class="add"><img class="control-img" src="./img/icons/add.png" alt="Add"></div>
-                    <div class="trash"><img class="control-img" src="./img/icons/trash.png" alt="Trash"></div>
+                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" alt="Up Down">
+                    <img class="control-img add" src="./img/icons/add.png" alt="Add">
+                    <img class="control-img trash" src="./img/icons/trash.png" alt="Trash">
                     <img class="control-img increase-font" src="./img/icons/increase-font.png" alt="Increase">
                     <img class="control-img decrease-font" src="./img/icons/decrease-font.png" alt="Decrease">
                     <img class="control-img align-left" src="./img/icons/align-to-left.png" alt="Align Left">
@@ -62,9 +60,13 @@
     </section>
     <footer class="main-footer flex flex-column align-center">
     </footer>
-    <script src="./js/services/gallary-service.js"></script>
-    <script src="./js/controllers/util-controller.js"></script>
-    <script src="./js/controllers/gallary-controller.js"></script>
+    <script src="./js/services/utilService.js"></script>
+    <script src="./js/services/memeService.js"></script>
+    <script src="./js/services/gallaryService.js"></script>
+    <script src="./js/controllers/utilController.js"></script>
+    <script src="./js/controllers/gallaryController.js"></script>
+    <script src="./js/controllers/memeController.js"></script>
+    <script src="./js/controllers/mainController.js"></script>
 </body>
 
 </html>

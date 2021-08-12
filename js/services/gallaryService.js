@@ -47,28 +47,10 @@ var gImgs =
     { id: 117, url: 'img/17.jpg', keywords: ['politic', 'president', 'suit'] },
     { id: 118, url: 'img/18.jpg', keywords: ['happy', 'fantasy', 'couple'] }];
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-
-    lines: [
-        {
-            txt: 'I never eat Falafel',
-            size: 20,
-            align: 'left',
-            color: 'red'
-        }
-    ]
-}
-
-
 function getImagesToDisplay() {
     return gImgs
 }
 
-function getImageById(id) {
-    return gImgs.find(image => image.id === id)
+function getImageById(imgId) {
+    return gImgs.find(image => image.id === imgId)
 }
-
-
-

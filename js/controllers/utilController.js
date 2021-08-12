@@ -1,5 +1,7 @@
 'use strict'
 
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
+
 function setInnerText(querySelector, innerText) {
     document.querySelector(querySelector).innerText = innerText;
 }
@@ -13,7 +15,6 @@ function setSrc(querySelector, src) {
 }
 
 function getInnerText(querySelector) {
-    debugger
     return document.querySelector(querySelector).innerText;
 }
 
@@ -22,7 +23,7 @@ function getInnerHTML(querySelector) {
 }
 
 function setHidden(querySelector, isHidden = false) {
-    return document.querySelector(querySelector).hidden = isHidden;
+   document.querySelector(querySelector).hidden = isHidden;
 }
 
 function getInputValue(querySelector) {
@@ -30,11 +31,19 @@ function getInputValue(querySelector) {
 }
 
 function hideElement(querySelector) {
-    document.querySelector(querySelector).hidden = true;
+    var el = document.querySelector(querySelector)
+    el.style.display = "none";
 }
 
 function showElement(querySelector) {
-    document.querySelector(querySelector).hidden = true;
+    var el = document.querySelector(querySelector)
+    if (el.classList.contains('flex')) {
+        el.style.display = 'flex'
+    } else if (el.classList.contains('grid')) {
+        el.style.display = 'grid'
+    } else {
+        el.style.display = 'block';
+    }
 }
 
 function addMouseListeners() {
