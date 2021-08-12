@@ -33,7 +33,7 @@ function drawTextLines() {
     })
 }
 
-function drawText(line) {  
+function drawText(line) {
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.lineWidth = 4
     gCtx.fillText(line.txt, line.x, line.y)
@@ -42,8 +42,20 @@ function drawText(line) {
 function onTypeText() {
     console.log('ontypetext')
     var txt = getInputValue('.meme-text')
-    console.log('txt',txt)
+    console.log('txt', txt)
     setSelectedLineTxt(txt)
+    renderCanvas()
+}
+
+function onIncrease() {
+    console.log('onIncrease')
+    changeFontSizeBy(+5)
+    renderCanvas()
+}
+
+function onDecrease() {
+    console.log('onDecrease')
+    changeFontSizeBy(-5)
     renderCanvas()
 }
 

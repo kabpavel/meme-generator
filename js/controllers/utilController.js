@@ -23,7 +23,7 @@ function getInnerHTML(querySelector) {
 }
 
 function setHidden(querySelector, isHidden = false) {
-   document.querySelector(querySelector).hidden = isHidden;
+    document.querySelector(querySelector).hidden = isHidden;
 }
 
 function getInputValue(querySelector) {
