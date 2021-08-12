@@ -8,9 +8,12 @@ var gMeme = {
         {
             id: makeId(),
             txt: 'I never eat Falafel',
+            font: 'Impact',
             size: 20,
             align: 'left',
-            color: 'red'
+            color: getRandomColor(),
+            x: 40,
+            y: 40
         }
     ]
 }
@@ -33,7 +36,7 @@ function createMeme(selectedImgId = -1, selectedLineIdx = 0, lines = []) {
     }
 }
 
-function createMemeLine(txt = 'I never eat Falafel', font = 'Impact', size = 20, align = 'top', color = 'orange', x = 20, y = 30) {
+function createMemeLine(txt = 'I never eat Falafel', font = 'Impact', size = 20, align = 'top', color = getRandomColor(), x = 20, y = 30) {
     return {
         id: makeId(),
         txt,
@@ -47,9 +50,9 @@ function createMemeLine(txt = 'I never eat Falafel', font = 'Impact', size = 20,
 }
 
 function addMemeLine(txt) {
+
     var newLine = createMemeLine(txt)
-    gMeme.selectedLineIdx = gMeme.lines.push() - 1
-    return newLine.id
+    gMeme.selectedLineIdx = gMeme.lines.push(newLine) - 1
 }
 
 function setSelectedLineTxt(txt) {
@@ -66,4 +69,26 @@ function getImage() {
 
 function changeFontSizeBy(num) {
     gMeme.lines[gMeme.selectedLineIdx].size += num;
+}
+
+function changeLocation(direction) {
+    switch (direction) {
+        case 'right':
+            gMeme.lines[gMeme.selectedLineIdx].x += 5;
+            break;
+        case 'left':
+            gMeme.lines[gMeme.selectedLineIdx].x += -5;
+            break;
+        case 'up':
+            gMeme.lines[gMeme.selectedLineIdx].y += -5;
+            break;
+        case 'down':
+            gMeme.lines[gMeme.selectedLineIdx].y += +5;
+            break;
+    }
+}
+
+function switchLine() {
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
+    console.log('gMeme.selectedLineIdx',gMeme.selectedLineIdx)
 }

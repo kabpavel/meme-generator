@@ -38,8 +38,12 @@
             <div class="control-box flex flex-column">
                 <input class="meme-text" type="text" name="meme-text" oninput="onTypeText()">
                 <div class="edit-txt-cont grid">
-                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" alt="Up Down">
-                    <img class="control-img add" src="./img/icons/add.png" alt="Add">
+                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" onclick="onSwithLine()" alt="Up Down">
+                    <img class="control-img add" src="./img/icons/add.png" onclick="addMemeLine()" alt="Add">
+                    <img class="control-img arrow-left" src="./img/icons/arrow-left.png" onclick="onLocation('left')" alt="Left">
+                    <img class="control-img arrow-right" src="./img/icons/arrow-right.png" onclick="onLocation('right')" alt="Right">
+                    <img class="control-img arrow-up" src="./img/icons/arrow-up.png" onclick="onLocation('up')" alt="Up">
+                    <img class="control-img arrow-down" src="./img/icons/arrow-down.png" onclick="onLocation('down')" alt="Down">
                     <img class="control-img trash" src="./img/icons/trash.png" alt="Trash">
                     <img class="control-img increase-font" src="./img/icons/increase-font.png" onclick="onIncrease()" alt="Increase">
                     <img class="control-img decrease-font" src="./img/icons/decrease-font.png" onclick="onDecrease()" alt="Decrease">

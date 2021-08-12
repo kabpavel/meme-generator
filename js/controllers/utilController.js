@@ -30,6 +30,10 @@ function getInputValue(querySelector) {
     return document.querySelector(querySelector).value;
 }
 
+function setInputValue(querySelector, txt) {
+    document.querySelector(querySelector).value = txt;
+}
+
 function hideElement(querySelector) {
     var el = document.querySelector(querySelector)
     el.style.display = "none";

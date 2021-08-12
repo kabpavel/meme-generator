@@ -19,7 +19,6 @@ function initMemeByImgId(imgId) {
 
 function renderCanvas() {
     var img = new Image()
-    debugger
     img.src = getImage().url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
@@ -28,6 +27,7 @@ function renderCanvas() {
 }
 
 function drawTextLines() {
+    console.log('getMeme().lines', getMeme().lines)
     getMeme().lines.forEach((line) => {
         drawText(line)
     })
@@ -35,35 +35,65 @@ function drawTextLines() {
 
 function drawText(line) {
     gCtx.font = `${line.size}px ${line.font}`
+    gCtx.CZ
     gCtx.lineWidth = 4
     gCtx.fillText(line.txt, line.x, line.y)
+    gCtx.fillStyle = line.color
+    console.log('line',line)
+
+    
+    console.log('isSelectedLine(line)',isSelectedLine(line)) 
+
+    if (isSelectedLine(line)) {
+         gCtx.strokeStyle = 'white'
+         gCtx.strokeText(line.txt, line.x, line.y)
+    }
 }
 
 function onTypeText() {
-    console.log('ontypetext')
     var txt = getInputValue('.meme-text')
-    console.log('txt', txt)
     setSelectedLineTxt(txt)
     renderCanvas()
 }
 
 function onIncrease() {
-    console.log('onIncrease')
     changeFontSizeBy(+5)
     renderCanvas()
 }
 
 function onDecrease() {
-    console.log('onDecrease')
     changeFontSizeBy(-5)
     renderCanvas()
+}
+
+function onLocation(direction) {
+    changeLocation(direction)
+    renderCanvas()
+}
+
+function onAddLine() {
+    console.log('onAddLine')
+    addMemeLine('')
+    setInputValue('.meme-text', '')
+}
+
+function onSwithLine() {
+    console.log('onSwithLine');
+    switchLine()
+    renderCanvas()
+}
+
+function isSelectedLine(id) {
+    var lineIdx = gMeme.lines.findIndex((line) => {
+        return line.id === id
+    })
+    return lineIdx === gMeme.selectedLineIdx
 }
 
 // function drawText(txt, x, y) {
 //     debugger
 //     gCtx.font = '48px serif';
 //     gCtx.fillText(txt, x, y);
-
 //     gCtx.lineWidth = 2
 //     gCtx.strokeStyle = 'brown'
 //     gCtx.fillStyle = 'white'
@@ -72,15 +102,11 @@ function onDecrease() {
 //     gCtx.strokeText(txt, x, y)
 // }
 
-
-
 /*
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 ctx.font = "30px Arial";
 ctx.fillText("Hello World", 10, 50);
-
-
 
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
