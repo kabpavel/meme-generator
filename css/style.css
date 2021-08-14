@@ -148,7 +148,6 @@ form.search-form::after {
 /* meme editor */
 
 .memo-container {
-    flex-direction: column;
     background-color: rgb(111, 111, 190);
 }
 
@@ -321,7 +320,7 @@ form.search-form::after {
 
     /* LAYOUT */
     .main-layout {
-        max-width: 600px;
+        max-width: 300px;
     }
     /* HEADER */
     .main-header {
@@ -358,13 +357,14 @@ form.search-form::after {
     }
     /* images gallery */
     .img-gallery-container {
-        height: 586px;
+        height: 293px;
     }
     .img-gallery-div {
         width: 50%;
     }
+    
     .scroll-style {
-        max-height: 600px;
+        max-height: 300px;
     }
     /* meme editor */
     .canvas-container {
@@ -422,6 +422,11 @@ form.search-form::after {
     /* FOOTER */
     .main-footer {
         height: 120px;
+    }
+
+    .memo-container {
+        flex-direction: column;
+        background-color: rgb(111, 111, 190);
     }
 }
 
