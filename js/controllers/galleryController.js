@@ -22,7 +22,7 @@ function renderSearchWord() {
         return acc + str
     }, '')
 
-    console.log('strHTML',strHTML)
+    console.log('strHTML', strHTML)
     setInnerHTML('#search-words-list', strHTML)
 }
 
@@ -33,18 +33,18 @@ function onOpenMeme(imgId) {
     initMemeByImgId(imgId)
 }
 
-function onOpenGallery() {    
+function onOpenGallery() {
     renderImageGallery()
     hideElement('.memo-container')
     showElement('.img-gallery')
-    if(isScreenWidthEquel(600)!== 1)
+    if (isScreenWidthEquel(600) === 1)
         showElement('.about-content')
 }
 
 function onSearchImg(ev) {
     ev.preventDefault();
-    const filterWord  = getInputValue('.search-word');
-    setInputValue('.search-word','');
+    const filterWord = getInputValue('.search-word');
+    setInputValue('.search-word', '');
     setFilterWord(filterWord);
     renderImageGallery();
 }

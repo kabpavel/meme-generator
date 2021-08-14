@@ -144,7 +144,8 @@ function addSubmitEventListenerToForm(querySelector) {
 }
 
 function isScreenWidthEquel(width) {
-    if(window.screen.availWidth > width) return 1
-    else if (window.screen.availWidth < width) return -1
+    console.log('window.innerWidth',window.innerWidth) 
+    if(window.innerWidth > width) return 1
+    else if (window.innerWidth < width) return -1
     return 0
 }
