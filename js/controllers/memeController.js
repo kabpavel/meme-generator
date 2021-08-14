@@ -2,6 +2,12 @@
 
 var gCanvas
 var gCtx
+var gMemePlace = 1
+var gFont = 'Impact'
+var gAlign = 'center'
+var gColor = 'orange'
+var gFontSize = 40
+var gDefaultText = 'Type her'
 
 function initMeme() {
     initCanvas()
@@ -13,12 +19,36 @@ function initCanvas() {
 }
 
 function initMemeByImgId(imgId) {
-    createDefaultMeme(imgId)
+    const text = gDefaultText;
+    const x = getXPositon(getTextWidth(text))
+    const y = getYPosition();
+    createDefaultMeme(imgId, text, gFont, gAlign, gColor, x, y)
     renderCanvas()
 }
 
+function getTextWidth(message) {
+    const metrics = gCtx.measureText(message)
+    return metrics.width
+}
+
+function getXPositon(textWidth) {
+    return (gCanvas.width / 2) - (textWidth / 2)
+}
+
+function getYPosition() {
+    return (gCanvas.height / 2)
+}
+
+function getRandomYPosition() {
+    return getRandomIntInclusive(30, gCanvas.height - 30);
+}
+
+function setStart() {
+    gMemePlace = 1
+}
+
 function renderCanvas() {
-    var img = new Image()
+    const img = new Image()
     img.src = getImage().url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
@@ -27,31 +57,36 @@ function renderCanvas() {
 }
 
 function drawTextLines() {
-    console.log('getMeme().lines', getMeme().lines)
     getMeme().lines.forEach((line) => {
         drawText(line)
     })
 }
 
 function drawText(line) {
+    gCtx.fillStyle = line.color    
+    gCtx.lineWidth = 1
     gCtx.font = `${line.size}px ${line.font}`
-    gCtx.CZ
-    gCtx.lineWidth = 4
     gCtx.fillText(line.txt, line.x, line.y)
-    gCtx.fillStyle = line.color
-    console.log('line',line)
+ 
+    //if (isSelectedLine(line)) gCtx.strokeStyle = 'white'
+    //else gCtx.strokeStyle = 'black'
 
-    
-    console.log('isSelectedLine(line)',isSelectedLine(line)) 
+    gCtx.strokeText(line.txt, line.x, line.y)
 
-    if (isSelectedLine(line)) {
-         gCtx.strokeStyle = 'white'
-         gCtx.strokeText(line.txt, line.x, line.y)
-    }
+    //     debugger
+    //     gCtx.font = '48px serif';
+    //     gCtx.fillText(txt, x, y);
+    //     gCtx.lineWidth = 2
+    //     gCtx.strokeStyle = 'brown'
+    //     gCtx.fillStyle = 'white'
+    //     gCtx.font = '40px Arial'
+    //     gCtx.fillText(txt, x, y)
+    //     gCtx.strokeText(txt, x, y)
+
 }
 
 function onTypeText() {
-    var txt = getInputValue('.meme-text')
+    const txt = getInputValue('.meme-text')
     setSelectedLineTxt(txt)
     renderCanvas()
 }
@@ -72,69 +107,27 @@ function onLocation(direction) {
 }
 
 function onAddLine() {
-    console.log('onAddLine')
-    addMemeLine('')
-    setInputValue('.meme-text', '')
+    const text =  gDefaultText;
+    const x = getXPositon(getTextWidth(text))
+    const y = getRandomYPosition();
+    addMemeLine(text, gFont, gFontSize, gAlign, gColor, x, y);
+    setInputValue('.meme-text', text)
+    renderCanvas()
 }
 
 function onSwithLine() {
-    console.log('onSwithLine');
     switchLine()
     renderCanvas()
 }
 
 function isSelectedLine(id) {
-    var lineIdx = gMeme.lines.findIndex((line) => {
+    const lineIdx = gMeme.lines.findIndex((line) => {
         return line.id === id
     })
     return lineIdx === gMeme.selectedLineIdx
 }
 
-// function drawText(txt, x, y) {
-//     debugger
-//     gCtx.font = '48px serif';
-//     gCtx.fillText(txt, x, y);
-//     gCtx.lineWidth = 2
-//     gCtx.strokeStyle = 'brown'
-//     gCtx.fillStyle = 'white'
-//     gCtx.font = '40px Arial'
-//     gCtx.fillText(txt, x, y)
-//     gCtx.strokeText(txt, x, y)
-// }
-
-/*
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-ctx.font = "30px Arial";
-ctx.fillText("Hello World", 10, 50);
-
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.font = "30px Arial";
-ctx.fillText("Hello World", 10, 50);
-
-
-
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-
-ctx.font = "20px Georgia";
-ctx.fillText("Hello World!", 10, 50);
-
-ctx.font = "30px Verdana";
-// Create gradient
-var gradient = ctx.createLinearGradient(0, 0, c.width, 0);
-gradient.addColorStop("0"," magenta");
-gradient.addColorStop("0.5", "blue");
-gradient.addColorStop("1.0", "red");
-// Fill with gradient
-ctx.fillStyle = gradient;
-ctx.fillText("Big smile!", 10, 90);
-
-*/
-
-
-
-
-
-
+function onSendToTrash() {
+    removeSelectedLine()
+    renderCanvas()
+}

@@ -1,34 +1,18 @@
 'use strict'
 
-var gMeme = {
-    selectedImgId: 5,
-    selectedLineIdx: 0,
-
-    lines: [
-        {
-            id: makeId(),
-            txt: 'I never eat Falafel',
-            font: 'Impact',
-            size: 20,
-            align: 'left',
-            color: getRandomColor(),
-            x: 40,
-            y: 40
-        }
-    ]
-}
+var gMeme
 
 function getMeme() {
     return gMeme
 }
 
-function createDefaultMeme(selectedImgId) {
-    console.log('selectedImgId', selectedImgId)
-    gMeme = createMeme(selectedImgId, 0, [createMemeLine()])
+function createDefaultMeme(selectedImgId, text, font, align, color, x, y) {
+    var memeLine = createMemeLine(text, font, 40, align, color, x, y)
+    gMeme = createMemeTemplate(selectedImgId, 0, [memeLine])
     console.log('gMeme', gMeme)
 }
 
-function createMeme(selectedImgId = -1, selectedLineIdx = 0, lines = []) {
+function createMemeTemplate(selectedImgId = -1, selectedLineIdx = 0, lines = []) {
     return {
         selectedImgId,
         selectedLineIdx,
@@ -36,7 +20,7 @@ function createMeme(selectedImgId = -1, selectedLineIdx = 0, lines = []) {
     }
 }
 
-function createMemeLine(txt = 'I never eat Falafel', font = 'Impact', size = 20, align = 'top', color = getRandomColor(), x = 20, y = 30) {
+function createMemeLine(txt, font, size, align, color, x, y) {
     return {
         id: makeId(),
         txt,
@@ -49,9 +33,8 @@ function createMemeLine(txt = 'I never eat Falafel', font = 'Impact', size = 20,
     }
 }
 
-function addMemeLine(txt) {
-
-    var newLine = createMemeLine(txt)
+function addMemeLine(txt, font, size, align, color, x, y) {
+    const newLine = createMemeLine(txt, font, size, align, color, x, y)
     gMeme.selectedLineIdx = gMeme.lines.push(newLine) - 1
 }
 
@@ -60,6 +43,8 @@ function setSelectedLineTxt(txt) {
 }
 
 function getSelectedLine() {
+    console.log('gMeme', gMeme)
+    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
     return gMeme.lines[gMeme.selectedLineIdx];
 }
 
@@ -90,5 +75,18 @@ function changeLocation(direction) {
 
 function switchLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
-    console.log('gMeme.selectedLineIdx',gMeme.selectedLineIdx)
+    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
+}
+
+function removeSelectedLine() {
+    console.log('removeSelectedLine')
+    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
+    var selecteLineIdx = gMeme.selectedLineIdx;
+    var nextSelecteLineIdx = -1;
+    if (gMeme.lines.length > 1)
+        nextSelecteLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
+    console.log('nextSelecteLineIdx', nextSelecteLineIdx)
+
+    gMeme.lines.splice(selecteLineIdx, 1);
+    gMeme.selectedLineIdx = nextSelecteLineIdx;
 }

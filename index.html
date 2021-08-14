@@ -10,27 +10,19 @@
 </head>
 
 <body onload="init()">
-    <header class="main-header">
-        <div class="main-header-div main-layout flex align-center space-between">
-            <div class="logo"><img class="logo-img" src="./img/logo/logo.png" alt=""></div>
-            <ul class="main-nav clean-list flex align-center">
-                <li>
-                    <a href="#" onclick="toggleMenu()">Gallery</a>
-                </li>
-                <li>
-                    <a href="#" onclick="toggleMenu()">About</a>
-                </li>
-            </ul>
-            <!-- <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button> -->
-        </div>
+    <header class="main-header main-layout flex align-center space-between">
+        <div class="logo"><img class="logo-img" src="./img/logo/logo.png" alt=""></div>
+        <ul class="main-nav clean-list flex align-center justify-center">
+            <li>
+                <a class="ref-gallery" href="#" onclick="onOpenGallery()">Gallery</a>
+            </li>
+            <li>
+                <a class="ref-about" href="#" onclick="toggleMenu()">About</a>
+            </li>
+        </ul>
+        <!-- <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button> -->
     </header>
     <main class="main-content main-layout">
-        <div class="img-gallery">
-            <div class="search">
-            </div>
-            <div class="img-gallery-container">
-            </div>
-        </div>
         <div class="memo-container flex">
             <div class="canvas-container">
                 <canvas class="canvas"></canvas>
@@ -38,19 +30,26 @@
             <div class="control-box flex flex-column">
                 <input class="meme-text" type="text" name="meme-text" oninput="onTypeText()">
                 <div class="edit-txt-cont grid">
-                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" onclick="onSwithLine()" alt="Up Down">
-                    <img class="control-img add" src="./img/icons/add.png" onclick="addMemeLine()" alt="Add">
-                    <img class="control-img arrow-left" src="./img/icons/arrow-left.png" onclick="onLocation('left')" alt="Left">
-                    <img class="control-img arrow-right" src="./img/icons/arrow-right.png" onclick="onLocation('right')" alt="Right">
-                    <img class="control-img arrow-up" src="./img/icons/arrow-up.png" onclick="onLocation('up')" alt="Up">
-                    <img class="control-img arrow-down" src="./img/icons/arrow-down.png" onclick="onLocation('down')" alt="Down">
-                    <img class="control-img trash" src="./img/icons/trash.png" alt="Trash">
-                    <img class="control-img increase-font" src="./img/icons/increase-font.png" onclick="onIncrease()" alt="Increase">
-                    <img class="control-img decrease-font" src="./img/icons/decrease-font.png" onclick="onDecrease()" alt="Decrease">
+                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" onclick="onSwithLine()"
+                        alt="Up Down">
+                    <img class="control-img add" src="./img/icons/add.png" onclick="onAddLine()" alt="Add">
+                    <img class="control-img arrow-left" src="./img/icons/arrow-left.png" onclick="onLocation('left')"
+                        alt="Left">
+                    <img class="control-img arrow-right" src="./img/icons/arrow-right.png" onclick="onLocation('right')"
+                        alt="Right">
+                    <img class="control-img arrow-up" src="./img/icons/arrow-up.png" onclick="onLocation('up')"
+                        alt="Up">
+                    <img class="control-img arrow-down" src="./img/icons/arrow-down.png" onclick="onLocation('down')"
+                        alt="Down">
+                    <img class="control-img trash" src="./img/icons/trash.png" onclick="onSendToTrash()" alt="Trash">
+                    <img class="control-img increase-font" src="./img/icons/increase-font.png" onclick="onIncrease()"
+                        alt="Increase">
+                    <img class="control-img decrease-font" src="./img/icons/decrease-font.png" onclick="onDecrease()"
+                        alt="Decrease">
                     <img class="control-img align-left" src="./img/icons/align-to-left.png" alt="Align Left">
                     <img class="control-img center-text" src="./img/icons/center-text-alignment.png" alt="Center Text">
                     <img class="control-img align-right" src="./img/icons/align-to-right.png" alt="Align Right">
-                    <input class="chose-font" type="" name="" >
+                    <input class="chose-font" type="" name="">
                     <img class="control-img text-stroke" src="./img/icons/text-stroke.png" alt="Text Stroke">
                     <img class="control-img paint" src="./img/icons/paint-board-and-brush.png" alt="Paint Brush">
                     <button class="share-btn share">Share</button>
@@ -58,17 +57,49 @@
                 </div>
             </div>
         </div>
+        <div class="img-gallery flex flex-column">
+            <div class="search-form-container">
+                <form class="search-form flex flex-row" action="">
+                    <input list="search-words-list" class="search-word" onchange="onSearchImg(event)"
+                        placeholder="Enter search keyword" name="search" />
+                    <datalist id="search-words-list">
+                    </datalist>
+                </form>
+            </div>
+            <div class="img-gallery-container scroll-style">
+            </div>
+        </div>
     </main>
-    <section>
-
+    <section class="about-content main-layout flex flex-row align-center justify-center">
+        <div class="my-picture-div"><img class="my-picture" src="./img/about/my-picture.png" alt=""></div>
+        <div class="my-text-div flex flex-column">
+            <h5>What is Lorem Ipsum?</h5>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            </p>
+        </div>
+        <div class="social-nav-div">
+            <ul class="social-nav flex">
+                <il class="flex align-center justify-center facebook"><a href="social-facebook"><img
+                            src="./images/F.png" alt="" srcset=""></a></il>
+                <il class="flex align-center justify-center twitter"><a href="social-twitter"><img src="./images/L.png"
+                            alt="" srcset=""></a></il>
+                <il class="flex align-center justify-center blogger"><a href="social-blogger"><img src="./images/E.png"
+                            alt="" srcset=""></a></il>
+                <il class="flex align-center justify-center dribbble"><a href="social-dribbble"><img
+                            src="./images/D.png" alt="" srcset=""></a></il>
+            </ul>
+        </div>
     </section>
-    <footer class="main-footer flex flex-column align-center">
+    <footer class="main-footer main-layout flex flex-column align-center justify-center">
+        <div class="logo "><img class="logo-img" src="./img/logo/logo.png" alt=""></div>
+        <p>© All Rights Reserved</p>
     </footer>
     <script src="./js/services/utilService.js"></script>
     <script src="./js/services/memeService.js"></script>
-    <script src="./js/services/gallaryService.js"></script>
+    <script src="./js/services/galleryService.js"></script>
     <script src="./js/controllers/utilController.js"></script>
-    <script src="./js/controllers/gallaryController.js"></script>
+    <script src="./js/controllers/galleryController.js"></script>
     <script src="./js/controllers/memeController.js"></script>
     <script src="./js/controllers/mainController.js"></script>
 </body>

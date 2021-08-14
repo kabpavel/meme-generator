@@ -7,6 +7,7 @@ function setInnerText(querySelector, innerText) {
 }
 
 function setInnerHTML(querySelector, innerHTML) {
+    if (!innerHTML) return
     document.querySelector(querySelector).innerHTML = innerHTML;
 }
 
@@ -35,12 +36,12 @@ function setInputValue(querySelector, txt) {
 }
 
 function hideElement(querySelector) {
-    var el = document.querySelector(querySelector)
+    const el = document.querySelector(querySelector)
     el.style.display = "none";
 }
 
 function showElement(querySelector) {
-    var el = document.querySelector(querySelector)
+    const el = document.querySelector(querySelector)
     if (el.classList.contains('flex')) {
         el.style.display = 'flex'
     } else if (el.classList.contains('grid')) {
@@ -48,6 +49,16 @@ function showElement(querySelector) {
     } else {
         el.style.display = 'block';
     }
+}
+
+function removeClass(querySelector, classToRemove) {
+    const el = document.querySelector(querySelector);
+    el.classList.remove(classToRemove);
+}
+
+function addClass(querySelector, classToAdd) {
+    const el = document.querySelector(querySelector);
+    el.classList.Add(classToAdd);
 }
 
 function addMouseListeners() {
@@ -63,7 +74,7 @@ function addTouchListeners() {
 }
 
 function getEvPos(ev) {
-    var pos = {
+    let pos = {
         x: ev.offsetX,
         y: ev.offsetY
     }
@@ -76,4 +87,58 @@ function getEvPos(ev) {
         }
     }
     return pos
+}
+
+var gPressedEnter = false;
+
+function addKeydownEventListenerToAllForms() {
+    window.addEventListener('keydown', function (event) {
+
+        //set default value for variable that will hold the status of keypress
+        gPressedEnter = false;
+
+        //if user pressed enter, set the variable to true
+        if (event.keyCode === 13)
+            gPressedEnter = true;
+
+        //we want forms to disable submit for a tenth of a second only
+        setTimeout(function () {
+            gPressedEnter = false;
+        }, 100)
+    })
+}
+
+// addSubmitEventListenerToAllForms();
+
+// function addSubmitEventListenerToAllForms() {
+//     //find all forms
+//     const forms = document.getElementsByTagName('form')
+
+//     //loop through forms
+//     for (let i = 0; i < forms.length; i++) {
+//         //listen to submit event
+//         forms[i].addEventListener('submit', function (e) {
+//             //if user just pressed enter, stop the submit event
+//             if (gPressedEnter == true) {
+//                 e.preventDefault();
+//                 return false;
+//             }
+//         })
+//     }
+// }
+
+function addSubmitEventListenerToForm(querySelector) {
+    console.log('addSubmitEventListenerToForm', addSubmitEventListenerToForm)
+    //find all forms
+    const el = document.querySelector(querySelector)
+
+    //listen to submit event
+    el.addEventListener('submit', function (e) {
+        //if user just pressed enter, stop the submit event
+        if (gPressedEnter === true) {
+            e.preventDefault();
+            return false;
+        }
+    })
+
 }
