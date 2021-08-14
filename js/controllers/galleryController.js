@@ -30,7 +30,6 @@ function onOpenMeme(imgId) {
     hideElement('.img-gallery')
     hideElement('.about-content')
     showElement('.memo-container')
-    console.log('imgId', imgId)
     initMemeByImgId(imgId)
 }
 
@@ -38,7 +37,8 @@ function onOpenGallery() {
     renderImageGallery()
     hideElement('.memo-container')
     showElement('.img-gallery')
-    showElement('.about-content')
+    if(isScreenWidthEquel(600)!== 1)
+        showElement('.about-content')
 }
 
 function onSearchImg(ev) {

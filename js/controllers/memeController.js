@@ -67,22 +67,7 @@ function drawText(line) {
     gCtx.lineWidth = 1
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillText(line.txt, line.x, line.y)
- 
-    //if (isSelectedLine(line)) gCtx.strokeStyle = 'white'
-    //else gCtx.strokeStyle = 'black'
-
     gCtx.strokeText(line.txt, line.x, line.y)
-
-    //     debugger
-    //     gCtx.font = '48px serif';
-    //     gCtx.fillText(txt, x, y);
-    //     gCtx.lineWidth = 2
-    //     gCtx.strokeStyle = 'brown'
-    //     gCtx.fillStyle = 'white'
-    //     gCtx.font = '40px Arial'
-    //     gCtx.fillText(txt, x, y)
-    //     gCtx.strokeText(txt, x, y)
-
 }
 
 function onTypeText() {
