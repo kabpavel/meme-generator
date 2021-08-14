@@ -4,7 +4,11 @@ function init() {
     initGallery()
     initMeme()
     hideElement('.memo-container')
-    addKeydownEventListenerToAllForms()
+    
+    addMouseListeners()
+    addTouchListeners()
+
+    addKeydownEventListener()
     addSubmitEventListenerToForm('.search-form')
 
     hideElement('.control-img.align-left')//todo

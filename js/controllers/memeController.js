@@ -2,6 +2,8 @@
 
 var gCanvas
 var gCtx
+let gIsMouseDown = false
+let gLastPos;
 var gMemePlace = 1
 var gFont = 'Impact'
 var gAlign = 'center'
@@ -115,4 +117,42 @@ function isSelectedLine(id) {
 function onSendToTrash() {
     removeSelectedLine()
     renderCanvas()
+}
+
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousedown', onMouseDown)
+    gCanvas.addEventListener('mousemove', getEvPos)
+    gCanvas.addEventListener('mouseup', onMouseUp)
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchstart', onMouseDown)
+    gCanvas.addEventListener('touchmove', getEvPos)
+    gCanvas.addEventListener('touchend', onMouseUp)
+}
+
+function onMouseDown() {
+    gIsMouseDown = true
+}
+
+function onMouseUp() {
+    gIsMouseDown = false
+    gLastPos = null
+}
+
+function getEvPos(ev) {
+    let pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
+        }
+    }
+    return pos
 }

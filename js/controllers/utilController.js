@@ -61,18 +61,6 @@ function addClass(querySelector, classToAdd) {
     el.classList.Add(classToAdd);
 }
 
-function addMouseListeners() {
-    gElCanvas.addEventListener('mousedown', onMouseDown)
-    gElCanvas.addEventListener('mousemove', draw)
-    gElCanvas.addEventListener('mouseup', onMouseUp)
-}
-
-function addTouchListeners() {
-    gElCanvas.addEventListener('touchstart', onMouseDown)
-    gElCanvas.addEventListener('touchmove', draw)
-    gElCanvas.addEventListener('touchend', onMouseUp)
-}
-
 function getEvPos(ev) {
     let pos = {
         x: ev.offsetX,
@@ -91,7 +79,7 @@ function getEvPos(ev) {
 
 var gPressedEnter = false;
 
-function addKeydownEventListenerToAllForms() {
+function addKeydownEventListener() {
     window.addEventListener('keydown', function (event) {
 
         //set default value for variable that will hold the status of keypress
