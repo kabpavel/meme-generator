@@ -24,6 +24,18 @@
         <!-- <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button> -->
     </header>
     <main class="main-content main-layout">
+        <div class="img-gallery flex flex-column">
+            <div class="search-form-container">
+                <form class="search-form flex flex-row" action="">
+                    <input list="search-words-list" class="search-word" onchange="onSearchImg(event)"
+                        placeholder="Enter search keyword" name="search" />
+                    <datalist id="search-words-list">
+                    </datalist>
+                </form>
+            </div>
+            <div class="img-gallery-container scroll-style">
+            </div>
+        </div>
         <div class="memo-container flex justify-space-between">
             <div class="canvas-container"  style="font-family: Impact">
                 <canvas class="canvas"></canvas>
@@ -40,27 +52,17 @@
                     <button class="cntrl-btn btn-trash" onclick="onSendToTrash()" alt="Trash">
                     <button class="cntrl-btn btn-increase-font" onclick="onIncrease()">
                     <button class="cntrl-btn btn-decrease-font" onclick="onDecrease()">
-                    <button class="cntrl-btn btn-align-left">
+                    <!-- <button class="cntrl-btn btn-align-left">
                     <button class="cntrl-btn btn-center-text">
                     <button class="cntrl-btn btn-align-right">
                     <input class="chose-font" type="" name="">
                     <button class="cntrl-btn btn-text-stroke">
-                    <button class="cntrl-btn btn-paint">
+                    <button class="cntrl-btn btn-paint"> -->
+                </div>
+                <!-- <div class="share-meme-cont">
                     <button class="btn-share share">Share</button>
                     <button class="btn-share download">Download</button>
-                </div>
-            </div>
-        </div>
-        <div class="img-gallery flex flex-column">
-            <div class="search-form-container">
-                <form class="search-form flex flex-row" action="">
-                    <input list="search-words-list" class="search-word" onchange="onSearchImg(event)"
-                        placeholder="Enter search keyword" name="search" />
-                    <datalist id="search-words-list">
-                    </datalist>
-                </form>
-            </div>
-            <div class="img-gallery-container scroll-style">
+                </div> -->
             </div>
         </div>
     </main>

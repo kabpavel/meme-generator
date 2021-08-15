@@ -607,6 +607,11 @@ form.search-form::after {
     .main-footer {
         height: 120px;
     }
+
+    .btn-share {
+        height: 30px;
+        width: 80px;
+    }
 }
 
 
