@@ -484,10 +484,6 @@ form.search-form::after {
         grid-area: 2 / 5 / 3 / 6;
     }
     
-    .btn-text-stroke {
-        /* grid-area: 3 / 4 / 4 / 5; */
-    }
-    
     .btn-paint {
         grid-area: 3 / 5 / 4 / 6;
     }
@@ -738,10 +734,7 @@ form.search-form::after {
         grid-area: 2 / 5 / 3 / 6;
     }
     
-    .btn-text-stroke {
-        /* grid-area: 3 / 4 / 4 / 5; */
-    }
-    
+   
     .btn-paint {
         grid-area: 3 / 5 / 4 / 6;
     }
