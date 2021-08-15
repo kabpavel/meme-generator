@@ -1,8 +1,4 @@
 
-.cntrl-btn {
-    
-    background-size: cover !important;
-}
 
 .btn-up-and-down {
     background-image: url("../img/icons/up-and-down.png");
@@ -59,3 +55,8 @@
 .btn-paint {
     background-image: url("../img/icons/paint-board-and-brush.png");
 }
+
+.color-picker {
+    position: absolute;
+    overflow: hidden;
+  }

@@ -8,7 +8,8 @@ function initGallery() {
 function renderImageGallery() {
     const imgs = getImagesToDisplay();
     const strHTML = imgs.reduce((acc, curr) => {
-        var str = `<img class="img-gallery-div" src="./${curr.url}" onclick="onOpenMeme(${curr.id})" alt="">`
+        var str = `<img class="img-gallery-div" src="./${curr.url}" 
+                        onclick="onOpenMeme(${curr.id})" alt="">`
         return acc + str
     }, '')
     setInnerHTML('.img-gallery-container', strHTML)
@@ -45,8 +46,8 @@ function onOpenGallery() {
 
 function onSearchImg(ev) {
     ev.preventDefault();
-    const filterWord = getInputValue('.search-word');
-    setInputValue('.search-word', '');
-    setFilterWord(filterWord);
-    renderImageGallery();
+    const filterWord = getInputValue('.search-word')
+    setInputValue('.search-word', '')
+    setFilterWord(filterWord)
+    renderImageGallery()
 }

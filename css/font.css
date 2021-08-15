@@ -1,0 +1,66 @@
+/* FONTS */
+
+@font-face {
+    font-family: fa-solid;
+    src: url(../fonts/fa/fa-solid-900.ttf);
+}
+
+@font-face {
+    font-family: fa-regular;
+    src: url(../fonts/fa/fa-regular-400.ttf);
+}
+
+@font-face {
+    font-family: montserrat;
+    src: url(../fonts/montserrat/montserrat.ttf);
+}
+
+@font-face {
+    font-family: impact;
+    src: url(../fonts/impact/impact.ttf);
+}
+
+@font-face {
+    font-family: poppins;
+    src: url(../fonts/poppins/Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: poppins-light;
+    src: url(../fonts/poppins/Poppins-Light.ttf);
+}
+
+@font-face {
+    font-family: poppins-bold;
+    src: url(../fonts/poppins/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: alfa-slab;
+    src: url(../fonts/alfa_slab_one/AlfaSlabOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: permanent-marker;
+    src: url(../fonts/permanent_marker/PermanentMarker-Regular.ttf);
+}
+
+@font-face {
+    font-family: righteous;
+    src: url(../fonts/righteous/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: pacifico;
+    src: url(../fonts/pacifico/Pacifico-Regular.ttf);
+}
+
+@font-face {
+    font-family: verla-hebrew;
+    src: url(../fonts/varela_round/VarelaRound-Regular.ttf);
+}
+
+@font-face {
+    font-family: secular-hebrew;
+    src: url(../fonts/secular_one/SecularOne-Regular.ttf);
+}

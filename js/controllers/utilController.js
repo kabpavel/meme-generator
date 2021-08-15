@@ -1,7 +1,5 @@
 'use strict'
 
-const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
-
 function setInnerText(querySelector, innerText) {
     document.querySelector(querySelector).innerText = innerText;
 }
@@ -42,11 +40,11 @@ function setInputValue(querySelector, txt) {
 
 function hideElement(querySelector) {
     addClass(querySelector, "hide")
- }
+}
 
- function showElement(querySelector) {
+function showElement(querySelector) {
     removeClass(querySelector, "hide")
- }
+}
 
 // function showElement(querySelector) {
 //     const el = document.querySelector(querySelector)
@@ -70,22 +68,6 @@ function addClass(querySelector, classToAdd) {
 
 }
 
-function getEvPos(ev) {
-    let pos = {
-        x: ev.offsetX,
-        y: ev.offsetY
-    }
-    if (gTouchEvs.includes(ev.type)) {
-        ev.preventDefault()
-        ev = ev.changedTouches[0]
-        pos = {
-            x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-            y: ev.pageY - ev.target.offsetTop - ev.target.clientTop
-        }
-    }
-    return pos
-}
-
 var gPressedEnter = false;
 
 function addKeydownEventListener() {
@@ -105,42 +87,25 @@ function addKeydownEventListener() {
     })
 }
 
-// addSubmitEventListenerToAllForms();
+function addSubmitEventListenerToForms(querySelectors) {
+    //loop through forms
+    for (let i = 0; i < querySelectors.length; i++) {
 
-// function addSubmitEventListenerToAllForms() {
-//     //find all forms
-//     const forms = document.getElementsByTagName('form')
+        const el = document.querySelector(querySelectors[i])
 
-//     //loop through forms
-//     for (let i = 0; i < forms.length; i++) {
-//         //listen to submit event
-//         forms[i].addEventListener('submit', function (e) {
-//             //if user just pressed enter, stop the submit event
-//             if (gPressedEnter == true) {
-//                 e.preventDefault();
-//                 return false;
-//             }
-//         })
-//     }
-// }
-
-function addSubmitEventListenerToForm(querySelector) {
-    //find all forms
-    const el = document.querySelector(querySelector)
-
-    //listen to submit event
-    el.addEventListener('submit', function (e) {
-        //if user just pressed enter, stop the submit event
-        if (gPressedEnter === true) {
-            e.preventDefault();
-            return false;
-        }
-    })
-
+        //listen to submit event
+        el.addEventListener('submit', function (e) {
+            //if user just pressed enter, stop the submit event
+            if (gPressedEnter === true) {
+                e.preventDefault();
+                return false;
+            }
+        })
+    }
 }
 
 function isScreenWidthEquel(width) {
-    if(window.innerWidth > width) return 1
+    if (window.innerWidth > width) return 1
     else if (window.innerWidth < width) return -1
     return 0
 }

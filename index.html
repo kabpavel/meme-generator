@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/image.css">
     <title>Document</title>
@@ -37,32 +38,49 @@
             </div>
         </div>
         <div class="memo-container flex justify-space-between">
-            <div class="canvas-container"  style="font-family: Impact">
+            <div class="canvas-container">
                 <canvas class="canvas"></canvas>
             </div>
             <div class="control-box flex flex-column">
                 <input class="meme-text" type="text" name="meme-text" oninput="onTypeText()">
                 <div class="edit-txt-cont grid">
-                    <button class="cntrl-btn btn-up-and-down" onclick="onSwithLine()">
-                    <button class="cntrl-btn btn-add" onclick="onAddLine()">
-                    <button class="cntrl-btn btn-arrow-left" onclick="onLocation('left')">
-                    <button class="cntrl-btn btn-arrow-right" onclick="onLocation('right')">
-                    <button class="cntrl-btn btn-arrow-up" onclick="onLocation('up')">
-                    <button class="cntrl-btn btn-arrow-down" onclick="onLocation('down')">
-                    <button class="cntrl-btn btn-trash" onclick="onSendToTrash()" alt="Trash">
-                    <button class="cntrl-btn btn-increase-font" onclick="onIncrease()">
-                    <button class="cntrl-btn btn-decrease-font" onclick="onDecrease()">
-                    <!-- <button class="cntrl-btn btn-align-left">
-                    <button class="cntrl-btn btn-center-text">
-                    <button class="cntrl-btn btn-align-right">
-                    <input class="chose-font" type="" name="">
-                    <button class="cntrl-btn btn-text-stroke">
-                    <button class="cntrl-btn btn-paint"> -->
+                    <button class="cntrl-btn btn-up-and-down" onclick="onSwitchLine()"></button>
+                    <button class="cntrl-btn btn-add" onclick="onAddLine()"></button>
+                    <button class="cntrl-btn btn-arrow-left" onclick="onLocation('left')"></button>
+                    <button class="cntrl-btn btn-arrow-right" onclick="onLocation('right')"></button>
+                    <button class="cntrl-btn btn-arrow-up" onclick="onLocation('up')"></button>
+                    <button class="cntrl-btn btn-arrow-down" onclick="onLocation('down')"></button>
+                    <button class="cntrl-btn btn-trash" onclick="onSendToTrash()" alt="Trash"></button>
+                    <button class="cntrl-btn btn-increase-font" onclick="onIncrease()"></button>
+                    <button class="cntrl-btn btn-decrease-font" onclick="onDecrease()"></button>
+                    <button class="cntrl-btn btn-align-left" onclick="onLocation('align-left')"></button>
+                    <button class="cntrl-btn btn-center-text" onclick="onLocation('center-text')"></button>
+                    <button class="cntrl-btn btn-align-right" onclick="onLocation('align-right')"></button>
+                    <!-- <button class="cntrl-btn btn-text-stroke" onclick="onChangeStrock()"></button> -->
+                    
+                    <button class="cntrl-btn btn-paint color"><input type="color" onchange="onSelectColor()" value="#cc2e2e"></button>
+
+                    <form class="choose-font-form flex flex-row" action="">
+                        <input list="choose-font-list" class="choose-font" onchange="onChooseFont()" name="font" />
+                        <datalist id="choose-font-list">
+                            <option value="montserrat">
+                            <option value="impact">
+                            <option value="poppins">
+                            <option value="poppins-light">
+                            <option value="poppins-bold">
+                            <option value="alfa-slab">
+                            <option value="permanent-marker">
+                            <option value="righteous">
+                            <option value="pacifico">
+                            <option value="verla-hebrew">
+                            <option value="secular-hebrew">
+                        </datalist>
+                    </form>
                 </div>
-                <!-- <div class="share-meme-cont">
-                    <button class="btn-share share">Share</button>
-                    <button class="btn-share download">Download</button>
-                </div> -->
+                <div class="share-meme-cont flex align-center justify-center ">
+                    <!-- <button class="btn-share share">Share</button>-->
+                    <a href="#" class="btn share-btns btn-share download" onclick="onDownload(this)" download="myphoto">Download</a>
+                </div>
             </div>
         </div>
     </main>
@@ -74,7 +92,7 @@
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
             </p>
         </div>
-        <div class="social-nav-div">
+        <!-- <div class="social-nav-div">
             <ul class="social-nav flex">
                 <il class="flex align-center justify-center facebook"><a href="social-facebook"><img
                             src="./images/F.png" alt="" srcset=""></a></il>
@@ -85,7 +103,7 @@
                 <il class="flex align-center justify-center dribbble"><a href="social-dribbble"><img
                             src="./images/D.png" alt="" srcset=""></a></il>
             </ul>
-        </div>
+        </div> -->
     </section>
     <footer class="main-footer main-layout flex flex-column align-center justify-center">
         <div class="logo "><img class="logo-img" src="./img/logo/logo.png" alt=""></div>

@@ -6,10 +6,9 @@ function getMeme() {
     return gMeme
 }
 
-function createDefaultMeme(selectedImgId, text, font, align, color, x, y) {
-    var memeLine = createMemeLine(text, font, 40, align, color, x, y)
+function createDefaultMeme(selectedImgId, text, font, align, color, isStroke, x, y) {
+    var memeLine = createMemeLine(text, font, 40, align, color, isStroke, x, y)
     gMeme = createMemeTemplate(selectedImgId, 0, [memeLine])
-    console.log('gMeme', gMeme)
 }
 
 function createMemeTemplate(selectedImgId = -1, selectedLineIdx = 0, lines = []) {
@@ -20,7 +19,7 @@ function createMemeTemplate(selectedImgId = -1, selectedLineIdx = 0, lines = [])
     }
 }
 
-function createMemeLine(txt, font, size, align, color, x, y) {
+function createMemeLine(txt, font, size, align, color, isStroke, x, y) {
     return {
         id: makeId(),
         txt,
@@ -28,13 +27,14 @@ function createMemeLine(txt, font, size, align, color, x, y) {
         size,
         align,
         color,
+        isStroke,
         x,
         y
     }
 }
 
-function addMemeLine(txt, font, size, align, color, x, y) {
-    const newLine = createMemeLine(txt, font, size, align, color, x, y)
+function addMemeLine(txt, font, size, align,  color, isStroke, x, y) {
+    const newLine = createMemeLine(txt, font, size, align, color, isStroke, x, y)
     gMeme.selectedLineIdx = gMeme.lines.push(newLine) - 1
 }
 
@@ -42,9 +42,12 @@ function setSelectedLineTxt(txt) {
     getSelectedLine().txt = txt;
 }
 
+function setSelectedLineFont(font) {
+    console.log('setSelectedLineFont')
+    getSelectedLine().font = font;
+}
+
 function getSelectedLine() {
-    console.log('gMeme', gMeme)
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
     return gMeme.lines[gMeme.selectedLineIdx];
 }
 
@@ -53,33 +56,58 @@ function getImage() {
 }
 
 function changeFontSizeBy(num) {
-    gMeme.lines[gMeme.selectedLineIdx].size += num;
+    getSelectedLine().size += num;
 }
 
-function changeLocation(direction) {
+function changeColor(color) {
+    getSelectedLine().color = color;
+}
+
+function changeSelectedLineStrock() {
+    
+    var selectedLine = getSelectedLine()
+    var tt = selectedLine.isStrock
+    selectedLine.isStrock = !tt
+}
+
+function changeLocation(direction, canvasSize) {
+    var cWidth = canvasSize["width"];
+    var selectedLine = getSelectedLine()
+
     switch (direction) {
         case 'right':
-            gMeme.lines[gMeme.selectedLineIdx].x += 5;
+            selectedLine.x += 5
             break;
         case 'left':
-            gMeme.lines[gMeme.selectedLineIdx].x += -5;
+            selectedLine.x += -5
             break;
         case 'up':
-            gMeme.lines[gMeme.selectedLineIdx].y += -5;
+            selectedLine.y += -5
             break;
         case 'down':
-            gMeme.lines[gMeme.selectedLineIdx].y += +5;
+            selectedLine.y += +5
+            break;
+        case 'align-left':
+            selectedLine.x = cWidth/2
+            selectedLine.align = 'right'
+            break;
+        case 'center-text':
+            selectedLine.x = cWidth/2;
+            selectedLine.align = 'center'
+            break;
+        case 'align-right':
+            selectedLine.x = cWidth/2;
+            selectedLine.align = 'left'
             break;
     }
 }
 
 function switchLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
 }
 
 function removeSelectedLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1);
-    if(gMeme.lines.length === 0) gMeme.selectedLineIdx = -1
-    if(gMeme.lines.length < gMeme.selectedLineIdx + 1 ) gMeme.selectedLineIdx = 0
+    if (gMeme.lines.length === 0) gMeme.selectedLineIdx = -1
+    if (gMeme.lines.length < gMeme.selectedLineIdx + 1) gMeme.selectedLineIdx = 0
 }

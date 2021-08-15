@@ -55,9 +55,7 @@ function getSearchWords() {
     const words = []
     
     gImgs.forEach((line) => {
-        console.log('line',line)
         line.keywords.forEach((word) => {
-            console.log('word',word)
             if(!isItemExist(words, word)) {
                 words.push(word)
             }
