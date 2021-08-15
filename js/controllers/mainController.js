@@ -11,13 +11,13 @@ function init() {
     addKeydownEventListener()
     addSubmitEventListenerToForm('.search-form')
 
-    hideElement('.control-img.align-left')//todo
-    hideElement('.control-img.center-text')//todo
-    hideElement('.control-img.align-right')//todo
+    hideElement('.cntrl-btn.btn-align-left')//todo
+    hideElement('.cntrl-btn.btn-center-text')//todo
+    hideElement('.cntrl-btn.btn-align-right')//todo
     hideElement('.chose-font')//todo
-    hideElement('.control-img.text-stroke')//todo
-    hideElement('.control-img.paint')//todo
-    hideElement('.share-btn.share')//todo
-    hideElement('.share-btn.download')//todo
+    hideElement('.cntrl-btn.btn-text-stroke')//todo
+    hideElement('.cntrl-btn.btn-paint')//todo
+    hideElement('.btn-share.share')//todo
+    hideElement('.btn-share.download')//todo
     hideElement('.ref-about')//todo
 }

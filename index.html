@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/image.css">
     <title>Document</title>
 </head>
 
@@ -24,36 +25,29 @@
     </header>
     <main class="main-content main-layout">
         <div class="memo-container flex justify-space-between">
-            <div class="canvas-container">
+            <div class="canvas-container"  style="font-family: Impact">
                 <canvas class="canvas"></canvas>
             </div>
             <div class="control-box flex flex-column">
                 <input class="meme-text" type="text" name="meme-text" oninput="onTypeText()">
                 <div class="edit-txt-cont grid">
-                    <img class="control-img up-and-down" src="./img/icons/up-and-down.png" onclick="onSwithLine()"
-                        alt="Up Down">
-                    <img class="control-img add" src="./img/icons/add.png" onclick="onAddLine()" alt="Add">
-                    <img class="control-img arrow-left" src="./img/icons/arrow-left.png" onclick="onLocation('left')"
-                        alt="Left">
-                    <img class="control-img arrow-right" src="./img/icons/arrow-right.png" onclick="onLocation('right')"
-                        alt="Right">
-                    <img class="control-img arrow-up" src="./img/icons/arrow-up.png" onclick="onLocation('up')"
-                        alt="Up">
-                    <img class="control-img arrow-down" src="./img/icons/arrow-down.png" onclick="onLocation('down')"
-                        alt="Down">
-                    <img class="control-img trash" src="./img/icons/trash.png" onclick="onSendToTrash()" alt="Trash">
-                    <img class="control-img increase-font" src="./img/icons/increase-font.png" onclick="onIncrease()"
-                        alt="Increase">
-                    <img class="control-img decrease-font" src="./img/icons/decrease-font.png" onclick="onDecrease()"
-                        alt="Decrease">
-                    <img class="control-img align-left" src="./img/icons/align-to-left.png" alt="Align Left">
-                    <img class="control-img center-text" src="./img/icons/center-text-alignment.png" alt="Center Text">
-                    <img class="control-img align-right" src="./img/icons/align-to-right.png" alt="Align Right">
+                    <button class="cntrl-btn btn-up-and-down" onclick="onSwithLine()">
+                    <button class="cntrl-btn btn-add" onclick="onAddLine()">
+                    <button class="cntrl-btn btn-arrow-left" onclick="onLocation('left')">
+                    <button class="cntrl-btn btn-arrow-right" onclick="onLocation('right')">
+                    <button class="cntrl-btn btn-arrow-up" onclick="onLocation('up')">
+                    <button class="cntrl-btn btn-arrow-down" onclick="onLocation('down')">
+                    <button class="cntrl-btn btn-trash" onclick="onSendToTrash()" alt="Trash">
+                    <button class="cntrl-btn btn-increase-font" onclick="onIncrease()">
+                    <button class="cntrl-btn btn-decrease-font" onclick="onDecrease()">
+                    <button class="cntrl-btn btn-align-left">
+                    <button class="cntrl-btn btn-center-text">
+                    <button class="cntrl-btn btn-align-right">
                     <input class="chose-font" type="" name="">
-                    <img class="control-img text-stroke" src="./img/icons/text-stroke.png" alt="Text Stroke">
-                    <img class="control-img paint" src="./img/icons/paint-board-and-brush.png" alt="Paint Brush">
-                    <button class="share-btn share">Share</button>
-                    <button class="share-btn download">Download</button>
+                    <button class="cntrl-btn btn-text-stroke">
+                    <button class="cntrl-btn btn-paint">
+                    <button class="btn-share share">Share</button>
+                    <button class="btn-share download">Download</button>
                 </div>
             </div>
         </div>

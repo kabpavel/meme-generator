@@ -1,0 +1,61 @@
+
+.cntrl-btn {
+    
+    background-size: cover !important;
+}
+
+.btn-up-and-down {
+    background-image: url("../img/icons/up-and-down.png");
+}
+
+.btn-add {
+    background-image: url("../img/icons/add.png");
+}
+
+.btn-arrow-left {
+    background-image: url("../img/icons/arrow-left.png");
+}
+
+.btn-arrow-right {
+    background-image: url("../img/icons/arrow-right.png");
+}
+
+.btn-arrow-up {
+    background-image: url("../img/icons/arrow-up.png");
+}
+
+.btn-arrow-down {
+    background-image: url("../img/icons/arrow-down.png");
+}
+
+.btn-trash {
+    background-image: url("../img/icons/trash.png");
+}
+
+.btn-increase-font {
+    background-image: url("../img/icons/increase-font.png");
+}
+
+.btn-decrease-font {
+    background-image: url("../img/icons/decrease-font.png");
+}
+
+.btn-align-left {
+    background-image: url("../img/icons/align-to-left.png");
+}
+
+.btn-center-text {
+    background-image: url("../img/icons/center-text-alignment.png");
+}
+
+.btn-align-right {
+    background-image: url("../img/icons/align-to-right.png");
+}
+
+.btn-text-stroke {
+    background-image: url("../img/icons/text-stroke.png");
+}
+
+.btn-paint {
+    background-image: url("../img/icons/paint-board-and-brush.png");
+}

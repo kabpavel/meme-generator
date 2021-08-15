@@ -158,6 +158,7 @@ form.search-form::after {
 
 .canvas {
     background-color: ivory;
+    font-family: Impact;
 }
 
 .chose-font {
@@ -249,7 +250,7 @@ form.search-form::after {
 }
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 @media (max-width:600px) {
@@ -387,7 +388,7 @@ form.search-form::after {
         height: 280px;
         width: 280px;
     }
-    .control-img {
+    .cntrl-btn {
         height: 30px;
         width: 30px;
     }
@@ -440,6 +441,10 @@ form.search-form::after {
 }
 
 @media (min-width:600px) {
+
+    .about-content {
+        display: flex;
+    }
 
     h1, h2, h3, h4, h5, h6, a {
         margin: 0 0 1em;
@@ -558,7 +563,7 @@ form.search-form::after {
         height: 280px;
         width: 280px;
     }
-    .control-img {
+    .cntrl-btn {
         height: 30px;
         width: 30px;
     }
@@ -603,3 +608,7 @@ form.search-form::after {
         height: 120px;
     }
 }
+
+
+
+

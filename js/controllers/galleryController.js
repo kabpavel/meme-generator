@@ -22,7 +22,6 @@ function renderSearchWord() {
         return acc + str
     }, '')
 
-    console.log('strHTML', strHTML)
     setInnerHTML('#search-words-list', strHTML)
 }
 
@@ -34,9 +33,12 @@ function onOpenMeme(imgId) {
 }
 
 function onOpenGallery() {
+    setInputValue('.search-word', '');
+    setFilterWord('all');
     renderImageGallery()
     hideElement('.memo-container')
     showElement('.img-gallery')
+
     if (isScreenWidthEquel(600) === 1)
         showElement('.about-content')
 }

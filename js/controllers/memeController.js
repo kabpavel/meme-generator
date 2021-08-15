@@ -45,14 +45,11 @@ function getRandomYPosition() {
     return getRandomIntInclusive(30, gCanvas.height - 30);
 }
 
-function setStart() {
-    gMemePlace = 1
-}
-
 function renderCanvas() {
     const img = new Image()
     img.src = getImage().url;
     img.onload = () => {
+        gCtx.font = `${gFontSize}px ${gFont}`
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         drawTextLines();
     }
@@ -65,9 +62,9 @@ function drawTextLines() {
 }
 
 function drawText(line) {
+    gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillStyle = line.color    
     gCtx.lineWidth = 1
-    gCtx.font = `${line.size}px ${line.font}`
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeText(line.txt, line.x, line.y)
 }

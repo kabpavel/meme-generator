@@ -35,21 +35,29 @@ function setInputValue(querySelector, txt) {
     document.querySelector(querySelector).value = txt;
 }
 
-function hideElement(querySelector) {
-    const el = document.querySelector(querySelector)
-    el.style.display = "none";
-}
+// function hideElement(querySelector) {
+//     const el = document.querySelector(querySelector)
+//     el.style.display = "none";
+// }
 
-function showElement(querySelector) {
-    const el = document.querySelector(querySelector)
-    if (el.classList.contains('flex')) {
-        el.style.display = 'flex'
-    } else if (el.classList.contains('grid')) {
-        el.style.display = 'grid'
-    } else {
-        el.style.display = 'block';
-    }
-}
+function hideElement(querySelector) {
+    addClass(querySelector, "hide")
+ }
+
+ function showElement(querySelector) {
+    removeClass(querySelector, "hide")
+ }
+
+// function showElement(querySelector) {
+//     const el = document.querySelector(querySelector)
+//     if (el.classList.contains('flex')) {
+//         el.style.display = 'flex'
+//     } else if (el.classList.contains('grid')) {
+//         el.style.display = 'grid'
+//     } else {
+//         el.style.display = 'block';
+//     }
+// }
 
 function removeClass(querySelector, classToRemove) {
     const el = document.querySelector(querySelector);
@@ -58,7 +66,8 @@ function removeClass(querySelector, classToRemove) {
 
 function addClass(querySelector, classToAdd) {
     const el = document.querySelector(querySelector);
-    el.classList.Add(classToAdd);
+    el.classList.add(classToAdd);
+
 }
 
 function getEvPos(ev) {
@@ -116,7 +125,6 @@ function addKeydownEventListener() {
 // }
 
 function addSubmitEventListenerToForm(querySelector) {
-    console.log('addSubmitEventListenerToForm', addSubmitEventListenerToForm)
     //find all forms
     const el = document.querySelector(querySelector)
 
@@ -132,7 +140,6 @@ function addSubmitEventListenerToForm(querySelector) {
 }
 
 function isScreenWidthEquel(width) {
-    console.log('window.innerWidth',window.innerWidth) 
     if(window.innerWidth > width) return 1
     else if (window.innerWidth < width) return -1
     return 0

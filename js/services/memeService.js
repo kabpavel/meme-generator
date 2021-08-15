@@ -79,14 +79,7 @@ function switchLine() {
 }
 
 function removeSelectedLine() {
-    console.log('removeSelectedLine')
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
-    var selecteLineIdx = gMeme.selectedLineIdx;
-    var nextSelecteLineIdx = -1;
-    if (gMeme.lines.length > 1)
-        nextSelecteLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
-    console.log('nextSelecteLineIdx', nextSelecteLineIdx)
-
-    gMeme.lines.splice(selecteLineIdx, 1);
-    gMeme.selectedLineIdx = nextSelecteLineIdx;
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+    if(gMeme.lines.length === 0) gMeme.selectedLineIdx = -1
+    if(gMeme.lines.length < gMeme.selectedLineIdx + 1 ) gMeme.selectedLineIdx = 0
 }
