@@ -11,18 +11,19 @@
     <title>Document</title>
 </head>
 
-<body onload="init()">
+<body class="menu-open" onload="init()">
+    <div class="screen" onclick="toggleMenu()"></div>
     <header class="main-header main-layout flex align-center space-between">
         <div class="logo"><img class="logo-img" src="./img/logo/logo.png" alt=""></div>
         <ul class="main-nav clean-list flex align-center justify-center">
             <li>
-                <a class="ref-gallery" href="#" onclick="onOpenGallery()">Gallery</a>
+                <a class="ref-gallery" href="#" onclick="onOpenGallery();toggleMenu()">Gallery</a>
             </li>
-            <!-- <li>
+            <li>
                 <a class="ref-about" href="#" onclick="toggleMenu()">About</a>
-            </li> -->
+            </li>
         </ul>
-        <!-- <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button> -->
+       <button class="btn-menu-toggle" onclick="toggleMenu()">☰</button>
     </header>
     <main class="main-content main-layout">
         <div class="img-gallery flex flex-column">
@@ -56,24 +57,24 @@
                     <button class="cntrl-btn btn-align-left" onclick="onLocation('align-left')"></button>
                     <button class="cntrl-btn btn-center-text" onclick="onLocation('center-text')"></button>
                     <button class="cntrl-btn btn-align-right" onclick="onLocation('align-right')"></button>
-                    <!-- <button class="cntrl-btn btn-text-stroke" onclick="onChangeStrock()"></button> -->
+                    <button class="cntrl-btn btn-text-stroke" onclick="onChangeStrock()"></button>
                     
                     <button class="cntrl-btn btn-paint color"><input type="color" onchange="onSelectColor()" value="#cc2e2e"></button>
 
                     <form class="choose-font-form flex flex-row" action="">
                         <input list="choose-font-list" class="choose-font" onchange="onChooseFont()" name="font" />
                         <datalist id="choose-font-list">
-                            <option value="montserrat">
-                            <option value="impact">
-                            <option value="poppins">
-                            <option value="poppins-light">
-                            <option value="poppins-bold">
-                            <option value="alfa-slab">
-                            <option value="permanent-marker">
-                            <option value="righteous">
-                            <option value="pacifico">
-                            <option value="verla-hebrew">
-                            <option value="secular-hebrew">
+                            <option value="montserrat" style="font-family:montserrat">
+                            <option value="impact"  style="font-family:impact">
+                            <option value="poppins"  style="font-family:poppins">
+                            <option value="poppins-light"  style="font-family:poppins-light">
+                            <option value="poppins-bold"  style="font-family:poppins-bold">
+                            <option value="alfa-slab"  style="font-family:alfa-slab">
+                            <option value="permanent-marker"  style="font-family:permanent-marker">
+                            <option value="righteous"  style="font-family:righteous">
+                            <option value="pacifico"  style="font-family:pacifico">
+                            <option value="verla-hebrew" style="font-family:verla-hebrew">
+                            <option value="secular-hebrew"  style="font-family:secular-hebrew">
                         </datalist>
                     </form>
                 </div>

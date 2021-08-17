@@ -94,6 +94,7 @@ function drawText(line, isSlctLine) {
     if (!fontFace) return
     fontFace.load().then(function () {
 
+        debugger
         if (line.isStroke) {
             gCtx.strokeStyle = 'black';
         } else {
@@ -152,7 +153,6 @@ function onAddLine() {
 }
 
 function onSwitchLine() {
-    debugger
     switchLine()
     renderCanvas()
 }
@@ -189,6 +189,7 @@ function onSelectColor() {
 
 
 function onChangeStrock() {
+    debugger
     console.log('onChangeStrock')
     changeSelectedLineStrock();
     renderCanvas();
@@ -251,4 +252,14 @@ function draw(ev) {
     //         break;
     // }
     gLastPos = pos
+}
+
+
+function toggleMenu() {
+    document.body.classList.toggle('menu-open');
+}
+
+function onOpenModal(isVisible) {
+    var elModal = document.querySelector('.modal');
+    elModal.style.display = (isVisible) ? 'block' : 'none';
 }
